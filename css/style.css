@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+
+:root {
+    --main-font-family: "Open Sans", sans-serif;
+    --main-font-color: hsl(215, 51%, 70%); /* #000 */
+    --main-color-style: #fff; /* #000 */
+    --sub-font-color: #eee;
+    --sub-color-style: #fff;
+    --body-background-color: hsl(217, 54%, 11%);
+    --main-font-size: 1rem;
+    --nav-height: 4rem;
+    --nav-width: 100vw;
+    --profile-content-height: 100vh;
+    --profile-content-width: 100%;
+    --max-card-width: 480px;
+    --sub-card-width: 384px;
+    --card-height: 300px;
+    --card-title-height: 65px;
+    /* 
+  hsl(216, 50%, 16%)
+  hsl(215, 32%, 27%) */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* smooth scrolling page */
+html {
+    scroll-behavior: smooth;
+}
+/* end of smooth scrolling page */
+
+body {
+    font-family: var(--main-font-family);
+    background-color: var(--body-background-color);
+    font-size: var(--main-font-size);
+    overflow-x: hidden;
+}
+
+/* .resize-animation-stopper class, digunakan untuk menghentikan animasi saat browser di-resize ukuran halamannya */
+.resize-animation-stopper * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* .sr-only class, digunakan untuk menyembunyikan segala jenis info/konteks dari screen reader (screen reader akan men-skip element yang diberi class ini) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    outline: 0;
+}
+/* end of screen reader class */
+
+/* header */
+.primary-header {
+    /* background-color: pink; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* web logo */
+.logo-container {
+    margin: 0.5em 0 0.5em 2em;
+}
+
+.logo-container a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.oicon-cat-white {
+    font-size: 2.8125em;
+}
+
+/* .logo-container a img {
+    min-width: 2.8125em;
+} */
+/* end of web logo */
+
+/* navigation */
+.nav {
+    margin: 0 2em 0 0;
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+.primary-nav {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    list-style: none;
+}
+
+.nav-item {
+    font-size: 1.5em;
+    font-weight: 550;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--main-font-color);
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--sub-font-color);
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+    width: 100%;
+}
+
+@media screen and (max-width: 650px) {
+    /* mobile nav */
+    .primary-nav {
+        flex-direction: column;
+        position: fixed;
+        z-index: 99;
+        inset: 0 0 0 30%; /* shorthand for top, right, bottom, & left */
+        background-color: hsla(0, 0%, 0%, 0.2);
+        padding: min(30vh, 6em) 0;
+        transform: translateX(100%);
+        transition: 0.5s;
+    }
+
+    .primary-nav[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    /* 'CSS at-rule' dimana, saat browser yang dipakai men-support attribute yang ada di parameter, maka jalankan style attribute tersebut */
+    @supports (backdrop-filter: blur(0.1em)) {
+        .primary-nav {
+            background-color: hsla(0, 0%, 0%, 0.1);
+            backdrop-filter: blur(0.2em);
+        }
+    }
+
+    .mobile-nav-toggle {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        z-index: 999;
+        background: no-repeat url("../assets/icons/menu-white32.svg");
+        width: 2rem;
+        /* 'aspect-ratio' atrribute kombinasi dari width, yang fungsinya adalah membuat tinggi dari suatu konten akan relative dengan 'aspect-rationya', jika nilainya semakin besar, maka tinggi dari konten tersebut akan semakin kecil */
+        aspect-ratio: 1;
+        border: 0;
+        top: 0.85rem;
+        right: 2rem;
+        transition: 0.5s;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        position: fixed;
+        background: no-repeat url("../assets/icons/x-white32.svg");
+        transform: rotate(180deg);
+    }
+}
+/* end of navigation */
+
+/* content */
+/* profile content */
+.welcome-section {
+    height: var(--profile-content-height);
+    width: var(--profile-content-width);
+    display: flex;
+    justify-content: center;
+    color: var(--main-font-color);
+}
+
+.text {
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.text h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
+/* end of profile content */
+
+/* projects content */
+.projects {
+    /* background-color: pink; */
+    padding-bottom: 50px;
+    color: var(--main-font-color);
+}
+
+.project-title {
+    font-size: 1.8rem;
+    text-align: center;
+    padding-top: 70px;
+    width: fit-content;
+    margin: 0 auto;
+    /* border-bottom: 2px solid var(--main-color-style); */
+}
+
+.underline {
+    position: relative;
+}
+
+.underline::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--main-color-style);
+    color: var(--main-font-color);
+    left: 0;
+    bottom: -5px;
+}
+
+/* card */
+.card-box {
+    margin: 60px 0 0;
+}
+
+.project-card {
+    max-width: var(--max-card-width);
+    max-height: var(--card-height);
+    text-align: center;
+    margin: 0 auto 70px;
+    cursor: pointer;
+}
+
+.aha {
+    text-decoration: none;
+    max-width: var(--max-card-width);
+}
+
+.project-card img {
+    max-width: inherit;
+}
+
+.title {
+    border-bottom: 1px solid var(--main-color-style);
+    border-left: 1px solid var(--main-color-style);
+    border-right: 1px solid var(--main-color-style);
+    color: var(--main-font-color);
+    height: var(--card-title-height);
+    line-height: var(--card-title-height);
+    max-width: var(--max-card-width);
+    margin-top: -4.9px;
+}
+/* end of card */
+
+/* button 'Show All >' */
+.btn {
+    /* background-color: #666; */
+    border: 1px solid var(--main-color-style);
+    color: var(--main-font-color);
+    cursor: pointer;
+    display: block;
+    font-size: 1.3rem;
+    height: 45px;
+    line-height: 45px;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.5s;
+    width: 120px;
+}
+
+.btn:hover {
+    background-color: var(--main-color-style);
+    color: var(--sub-font-color);
+}
+/* enf of projects content */
+
+/* contacts */
+.contacts {
+    /* background-color: plum; */
+    padding-top: 70px;
+    padding-bottom: 100px;
+    color: var(--main-font-color);
+}
+
+.contact-text {
+    text-align: center;
+}
+
+.contact-text h1 {
+    font-size: 4rem;
+}
+
+.contact-text p {
+    margin-top: 5px;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.contact-social-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 0;
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: var(--main-font-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+}
+
+.social-media p {
+    font-size: 1rem;
+    font-weight: 600;
+}
+/* end of contacts */
+
+/* footer */
+footer {
+    border-top: 4px solid var(--main-color-style);
+    color: var(--main-font-color);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* .oicon-menu-white {
+    font-size: 2rem;
+} */
+/* end of footer */
+
+/* responsive */
+/* 835px < screen -> = 2 portfolio */
+@media screen and (min-width: 835px) {
+    .card-box {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 60px auto 0;
+        align-content: space-around;
+        justify-content: center;
+    }
+
+    .project-card img {
+        max-width: 384px;
+    }
+}
+
+/* 1070px < screen -> = 3 portfolio */
+@media screen and (min-width: 1071px) {
+    .card-box {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 60px 20px 0;
+        align-content: space-around;
+        justify-content: center;
+    }
+
+    .project-card img {
+        max-width: 480px;
+    }
+}
+/* end of responsive */

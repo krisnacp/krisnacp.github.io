@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/icon.css" />
+        <title>Portfolio</title>
+    </head>
+    <body>
+        <header class="primary-header">
+            <!-- web logo -->
+            <div id="logo-container" class="logo-container">
+                <a href="#">
+                    <i class="oicon-cat-white"></i>
+                </a>
+            </div>
+            <!-- end of web logo -->
+
+            <!-- mobile nav toggle  -->
+            <!-- attribute 'aria-controls', akan merujuk kepada attribute 'id' yang sudah di set, jadi element yang memiliki attribute 'aria-controls' ini, bisa mengontrol perilaku dari element 'id' tujuan -->
+            <button
+                class="mobile-nav-toggle"
+                aria-controls="primary-nav"
+                aria-expanded="false"
+            >
+                <span class="sr-only">Menu</span>
+            </button>
+            <!-- end of mobile nav toggle -->
+
+            <!-- navigation -->
+            <nav id="navbar" class="nav">
+                <ul id="primary-nav" class="primary-nav" data-visible="false">
+                    <li class="nav-item">
+                        <a href="#welcome-section" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- end of navigation -->
+        </header>
+
+        <!-- content -->
+
+        <!-- profile content -->
+        <section id="welcome-section" class="welcome-section">
+            <div class="text">
+                <h1>Hey I am capchipcup</h1>
+                <p>a web developer</p>
+            </div>
+        </section>
+        <!-- end of profile content -->
+
+        <!-- protfolio content -->
+        <section id="projects" class="projects">
+            <div class="project-title">
+                <h1 class="underline">These are some of my Projects</h1>
+            </div>
+            <div class="card-box">
+                <div class="project-card">
+                    <a
+                        href="https://codepen.io/capchipcup/pen/jOmjMPX"
+                        target="_blank"
+                        class="aha project-tile"
+                    >
+                        <img
+                            src="assets/images/dandelion.jpg"
+                            alt="Image of Dandelion"
+                        />
+                        <div class="title">
+                            <h3 class="text-title">Dandelion</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a
+                        href="https://codepen.io/capchipcup/pen/VwWKxKK"
+                        target="_blank"
+                        class="aha project-tile"
+                    >
+                        <img
+                            src="assets/images/ship.jpg"
+                            alt="Image of Paper Ship"
+                        />
+                        <div class="title">
+                            <h3 class="text-title">Ship</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a
+                        href="https://codepen.io/capchipcup/pen/YzxGmmg"
+                        target="_blank"
+                        class="aha project-tile"
+                    >
+                        <img
+                            src="assets/images/sunflower.jpg"
+                            alt="Image of Sunflower"
+                        />
+                        <div class="title">
+                            <h3 class="text-title">Sunflower</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a
+                        href="https://codepen.io/capchipcup/pen/eYGqejb"
+                        target="_blank"
+                        class="aha project-tile"
+                    >
+                        <img src="assets/images/fox.jpg" alt="Image of Fox" />
+                        <div class="title">
+                            <h3 class="text-title">Fox</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="#" target="_blank" class="aha project-tile">
+                        <img
+                            src="assets/images/hill.jpg"
+                            alt="Image of Paper Hill"
+                        />
+                        <div class="title">
+                            <h3 class="text-title">Hill</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-card">
+                    <a href="#" target="_blank" class="aha project-tile">
+                        <img
+                            src="assets/images/giraffe.jpg"
+                            alt="Image of Giraffe"
+                        />
+                        <div class="title">
+                            <h3 class="text-title">Giraffe</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="btn" role="button">Show all <span>></span></a>
+        </section>
+        <!-- end of portfolio content -->
+
+        <!-- contacts & social media -->
+        <section id="contact" class="contacts">
+            <div class="contact-text">
+                <h1>Let's work together...</h1>
+                <p>How do you take tour coffee?</p>
+            </div>
+            <div class="contact-social-container">
+                <div class="social-media">
+                    <a href="#" target="_blank">
+                        <img
+                            src="assets/icons/facebook.svg"
+                            alt="facebook icon"
+                        />
+                        <p>Facebook</p>
+                    </a>
+                </div>
+                <div class="social-media">
+                    <a href="#" target="_blank">
+                        <img
+                            src="assets/icons/instagram.svg"
+                            alt="instagram icon"
+                        />
+                        <p>Instagram</p>
+                    </a>
+                </div>
+                <div class="social-media">
+                    <a
+                        id="profile-link"
+                        href="https://github.com/krisnacp"
+                        target="_blank"
+                    >
+                        <img src="assets/icons/github.svg" alt="github icon" />
+                        <p>GitHub</p>
+                    </a>
+                </div>
+                <div class="social-media">
+                    <a href="#" target="_blank">
+                        <img
+                            src="assets/icons/linkedin.svg"
+                            alt="linkedin icon"
+                        />
+                        <p>Linkedin</p>
+                    </a>
+                </div>
+                <div class="social-media">
+                    <a href="#" target="_blank">
+                        <img
+                            src="assets/icons/twitter.svg"
+                            alt="twitter icon"
+                        />
+                        <p>Twitter</p>
+                    </a>
+                </div>
+                <div class="social-media">
+                    <a href="#" target="_blank">
+                        <img src="assets/icons/email.svg" alt="email icon" />
+                        <p>Email</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- end of contacts & social media -->
+
+        <footer>
+            <p>This kind of my Portfolio</p>
+            <p>&copy; by capchipcup</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
